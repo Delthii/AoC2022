@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AoC2022
+﻿namespace AoC2022
 {
     internal class Day01
     {
+        public Day01(string input)
+        {
+            var a = input.Split("\r\n\r\n").Select(e => e.Split("\r\n").Select(int.Parse)).Max(e => e.Sum());
+            var b = input.Split("\r\n\r\n").Select(e => e.Split("\r\n").Select(int.Parse)).OrderByDescending(e => e.Sum()).Take(3).SelectMany(e => e).Sum();
+        }
+
         public Day01(string[] input)
         {
             var elves = new List<Elf>();
