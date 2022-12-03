@@ -1,4 +1,4 @@
 ﻿using AoC2022;
 string dataPath = "..\\..\\..\\data\\";
-//Day02 day = new Day02(File.ReadAllLines(Path.Combine(dataPath, "in02.txt")));
-Day02 day = new Day02(File.ReadAllText(Path.Combine(dataPath, "in02.txt")));
+Day03 day = new Day03(File.ReadAllLines(Path.Combine(dataPath, "in03.txt")));
+//Day02 day = new Day02(File.ReadAllText(Path.Combine(dataPath, "in02.txt")));
