@@ -13,6 +13,28 @@ namespace AoC2022
             A(input);
             B(input);
         }
+        private static void A(string[] input)
+        {
+            Stack<char>[] stacks;
+            int startIndex;
+            Init(input, out stacks, out startIndex);
+
+            foreach (var row in input.Skip(startIndex))
+            {
+                var split = row.Split(' ');
+                var move = int.Parse(split[1]);
+                var from = int.Parse(split[3]) - 1;
+                var to = int.Parse(split[5]) - 1;
+
+                for (int i = 0; i < move; i++)
+                {
+                    var crate = stacks[from].Pop();
+                    stacks[to].Push(crate);
+                }
+            }
+
+            PrintTopCrates(stacks);
+        }
 
         private static void B(string[] input)
         {
@@ -54,30 +76,7 @@ namespace AoC2022
             }
             Console.WriteLine();
         }
-
-        private static void A(string[] input)
-        {
-            Stack<char>[] stacks;
-            int startIndex;
-            Init(input, out stacks, out startIndex);
-
-            foreach (var row in input.Skip(startIndex))
-            {
-                var split = row.Split(' ');
-                var move = int.Parse(split[1]);
-                var from = int.Parse(split[3]) - 1;
-                var to = int.Parse(split[5]) - 1;
-
-                for (int i = 0; i < move; i++)
-                {
-                    var crate = stacks[from].Pop();
-                    stacks[to].Push(crate);
-                }
-            }
-
-            PrintTopCrates(stacks);
-        }
-
+        
         private static void Init(string[] input, out Stack<char>[] stacks, out int startIndex)
         {
             stacks = new Stack<char>[9];
