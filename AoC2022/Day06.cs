@@ -12,6 +12,7 @@ namespace AoC2022
         {
             A(input);
             B(input);
+            B2(input);
         }
         private static void A(string[] input)
         {
@@ -39,6 +40,11 @@ namespace AoC2022
                     break;
                 }
             }
-        }        
+        }
+
+        private static void B2(string[] input)
+        {
+            Console.WriteLine(input.Single().SlidingWindow(14).Select((e, i) => (e.ToHashSet(), i)).First(tup => tup.Item1.Count == 14).i + 14);
+        }
     }
 }
